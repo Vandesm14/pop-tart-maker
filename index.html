@@ -7,6 +7,7 @@
 
 	<link rel="stylesheet" href="style.css">
 
+	<script src="https://cdn.jsdelivr.net/gh/eligrey/FileSaver.js/dist/FileSaver.min.js"></script>
 	<script defer src="jscolor.min.js"></script>
 	<script defer src="cash.min.js"></script>
 	<script defer src="script.js"></script>
@@ -19,14 +20,14 @@
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://pop-tart-maker.vandesm14.github.io">
+	<meta property="og:url" content="https://vandesm14.github.io/pop-tart-maker/">
 	<meta property="og:title" content="Pop Tart Maker">
 	<meta property="og:description" content="A Pop Tart Maker suggested by @DemonicCage and built by @Vandesm14">
 	<meta property="og:image" content="fav.png">
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
-	<meta property="twitter:url" content="https://pop-tart-maker.vandesm14.github.io">
+	<meta property="twitter:url" content="https://vandesm14.github.io/pop-tart-maker/">
 	<meta property="twitter:title" content="Pop Tart Maker">
 	<meta property="twitter:description" content="A Pop Tart Maker suggested by @DemonicCage and built by @Vandesm14">
 	<meta property="twitter:image" content="fav.png">
@@ -74,25 +75,27 @@
 				<p>Add Sprinkles?</p>
 				<input type="checkbox" id="input-sprinkles" checked="true">
 			</div>
+			<div class="row">
+				<button id="input-save">Save!</button>
+			</div>
 		</div>
 		<div class="viewer">
-			<svg width="1011" height="721" viewBox="0 0 1011 721" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<svg width="1011" height="721" viewBox="0 0 1011 721" fill="none" xmlns="http://www.w3.org/2000/svg" id="tart">
 				<g id="inside">
 					<path id="crust" d="M27.9503 91.7938C20.3548 91.6018 12.7189 88.7089 8.19761 82.6027C-6.52008 62.7255 1.6653 47.7344 8.88994 30.6522C15.4279 15.1935 29.7946 1.24605 46.5789 1.31047C331.48 2.40387 621.867 0.083135 973.767 1.11074C986.923 1.14916 998.613 9.76601 1002.32 22.3896C1014.21 62.9158 1012.35 64.8679 1005.9 73.5016C998.466 83.4524 987.654 91.4557 975.235 91.4293C631.688 90.6983 408.75 101.422 27.9503 91.7938Z" fill="currentColor" style="color: #FFDCA3"/>
 					<g id="icing">
-						<path id="secondary" d="M47.7947 68.8408C43.4233 68.786 38.9664 67.8824 35.2254 65.6204C27.6255 61.0251 25.4306 57.0011 25.9784 53.1677C28.3725 36.4139 55.0814 26.93 72.0054 26.9613C342.594 27.4614 618.532 26.3805 953.232 26.8714C963.561 26.8865 973.361 32.1516 978.502 41.1103C986.027 54.2247 985.202 56.4046 980.885 59.3785C973.329 64.5839 964.439 68.7457 955.264 68.7347C625.405 68.3374 413.389 73.4262 47.7947 68.8408Z" fill="currentColor" style="color: white"/>
-						<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="23" y="11" width="966" height="76">
-						<g id="mask">
-							<g id="vector">
-								<path d="M303.016 86.3073C309.16 56.9767 311.008 40.5315 303.016 11.2008H433.805C428.12 52.6227 429.079 67.1345 433.805 86.3073H303.016Z" fill="currentColor" style="color: #C4C4C4"/>
-								<path d="M152.803 11.2008C146.022 40.0229 146.79 56.5251 152.803 86.3073H23.4475V11.2008H152.803Z" fill="currentColor" style="color: #C4C4C4"/>
-								<path d="M584.017 86.3073C591.843 46.4117 592.477 29.1112 584.017 11.2008H707.037C700.1 52.6203 701.207 67.1363 707.037 86.3073H584.017Z" fill="currentColor" style="color: #C4C4C4"/>
-								<path d="M857.249 86.3073C865.684 53.2933 868.107 35.7902 857.249 11.2008H988.242V86.3073H857.249Z" fill="currentColor" style="color: #C4C4C4"/>
+						<path id="main" d="M47.7947 68.8408C43.4233 68.786 38.9664 67.8824 35.2254 65.6204C27.6256 61.0251 25.4306 57.0011 25.9784 53.1677C28.3725 36.4139 55.0814 26.93 72.0054 26.9613C342.594 27.4614 618.532 26.3805 953.232 26.8714C963.561 26.8865 973.361 32.1516 978.502 41.1103C986.027 54.2247 985.202 56.4046 980.885 59.3785C973.33 64.5839 964.439 68.7457 955.264 68.7347C625.405 68.3374 413.389 73.4262 47.7947 68.8408Z" fill="currentColor" style="color: #845100"/>
+						<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="148" y="11" width="717" height="76">
+							<g id="mask">
+								<g id="Vector">
+									<path d="M303.016 86.3073C309.16 56.9767 311.008 40.5315 303.016 11.2008H152.803C146.022 40.0229 146.79 56.5251 152.803 86.3073H303.016Z" fill="#C4C4C4"/>
+									<path d="M584.018 86.3073C591.843 46.4117 592.477 29.1112 584.018 11.2008H433.805C428.12 52.6227 429.079 67.1345 433.805 86.3073H584.018Z" fill="#C4C4C4"/>
+									<path d="M857.249 86.3073C865.684 53.2933 868.107 35.7902 857.249 11.2008H707.037C700.1 52.6203 701.207 67.1363 707.037 86.3073H857.249Z" fill="#C4C4C4"/>
+								</g>
 							</g>
-						</g>
 						</mask>
 						<g mask="url(#mask0)">
-							<path id="main" d="M47.7947 68.8408C43.4233 68.786 38.9664 67.8824 35.2254 65.6204C27.6255 61.0251 25.4306 57.0011 25.9784 53.1677C28.3725 36.4139 55.0814 26.93 72.0054 26.9613C342.594 27.4614 618.532 26.3805 953.232 26.8714C963.561 26.8865 973.361 32.1516 978.502 41.1103C986.027 54.2247 985.202 56.4046 980.885 59.3785C973.329 64.5839 964.439 68.7457 955.264 68.7347C625.405 68.3374 413.389 73.4262 47.7947 68.8408Z" fill="currentColor" style="color: #845100"/>
+							<path id="secondary" d="M47.7947 68.8408C43.4233 68.786 38.9664 67.8824 35.2254 65.6204C27.6256 61.0251 25.4306 57.0011 25.9784 53.1677C28.3725 36.4139 55.0814 26.93 72.0054 26.9613C342.594 27.4614 618.532 26.3805 953.232 26.8714C963.561 26.8865 973.361 32.1516 978.502 41.1103C986.027 54.2247 985.202 56.4046 980.885 59.3785C973.33 64.5839 964.439 68.7457 955.264 68.7347C625.405 68.3374 413.389 73.4262 47.7947 68.8408Z" fill="currentColor" style="color: white"/>
 						</g>
 					</g>
 				</g>
